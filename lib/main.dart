@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_image_to_text/textScreen.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blueGrey,
       ),
       home: const MyHomePage(),
     );
@@ -43,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Text Recognition example"),
+        title: const Text("Text Recognition"),
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -136,11 +138,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 20,
                 ),
-                
-                Text(
-                  scannedText,
-                  style: const TextStyle(fontSize: 20),
-                )
               ],
             )),
       )),
@@ -177,6 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     textScanning = false;
     setState(() {});
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => TextScreen(scannedText)));
   }
 
   @override
