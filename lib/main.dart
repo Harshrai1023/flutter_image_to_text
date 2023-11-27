@@ -174,8 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     textScanning = false;
     setState(() {});
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => TextScreen(scannedText)));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => TextScreen(scannedText)));
   }
 
   @override

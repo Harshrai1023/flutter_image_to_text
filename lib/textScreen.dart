@@ -32,7 +32,13 @@ class TextScreenState extends State<TextScreen> {
           )
         ],
       ),
-      body: Text(widget.scannedText),
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.maxFinite,
+          padding: const EdgeInsets.all(10),
+          child: SelectableText(widget.scannedText),
+        ),
+      ),
     );
   }
 }
